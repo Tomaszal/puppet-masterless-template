@@ -9,5 +9,5 @@ hierarchy:
   - name: "Per-node data"
     path: "nodes/%{::fqdn}.yaml"
 
-  - name: "Per-node data"
+  - name: "Common data"
     path: "common.yaml"
