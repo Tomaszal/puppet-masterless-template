@@ -1,0 +1,4 @@
+---
+role: "example"
+
+profile::helloworld::message: "Hello world!"
