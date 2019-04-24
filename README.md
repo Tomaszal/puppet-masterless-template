@@ -4,28 +4,38 @@ This is a template control repository that has the minimum amount of scaffolding
 
 ## Deploying this repository
 
+### Method #1: Using a Bolt bootstrap plan
+
+1. Enter your congrol repository remote in `data/common.yaml`
+2. Run the bootstrap plan using Bolt on your server
+```
+bolt plan run bootstrap -n ssh://root@server -p
+```
+
+### Method #2: Manually
+
 1. Install Puppet Agent on your server
 2. Install r10k gem
-    ```
-    /opt/puppetlabs/puppet/bin/gem install r10k
-    ```
+```
+/opt/puppetlabs/puppet/bin/gem install r10k
+```
 3. Edit r10k configuration
-    ```yaml
-    # /etc/puppetlabs/r10k/r10k.yaml
-    :cachedir: '/var/cache/r10k'
-    :sources:
-      :control:
-        remote: 'INSERT YOUR GIT REPOSITORY HERE'
-        basedir: '/etc/puppetlabs/code/environments'
-    ```
+```yaml
+# /etc/puppetlabs/r10k/r10k.yaml
+:cachedir: '/var/cache/r10k'
+:sources:
+    :control:
+    remote: 'INSERT YOUR GIT REPOSITORY HERE'
+    basedir: '/etc/puppetlabs/code/environments'
+```
 4. Deploy production environment and Puppetfile modules with r10k
-    ```
-    /opt/puppetlabs/puppet/bin/r10k deploy environment production --puppetfile --verbose
-    ```
+```
+/opt/puppetlabs/puppet/bin/r10k deploy environment production --puppetfile --verbose
+```
 5. Apply production environment
-    ```
-    /opt/puppetlabs/bin/puppet apply /etc/puppetlabs/code/environments/production/site.pp --verbose
-    ```
+```
+/opt/puppetlabs/bin/puppet apply /etc/puppetlabs/code/environments/production/site.pp --verbose
+```
 
 ## References
 

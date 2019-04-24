@@ -1,2 +1,2 @@
 ---
-message: "This node is using common data"
+bootstrap::config::control_remote: YOUR_CONTROL_GIT_REPO_REMOTE
